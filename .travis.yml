@@ -1,27 +1,26 @@
----
 language: node_js
 node_js:
-  - "6"
-
+- '6'
 sudo: false
 dist: trusty
-
 addons:
   chrome: stable
-
 cache:
   directories:
-    - $HOME/.npm
-
+  - "$HOME/.npm"
 env:
   global:
-    # See https://git.io/vdao3 for details.
-    - JOBS=1
-
+  - JOBS=1
 before_install:
-  - npm config set spin false
-
+- npm config set spin false
 script:
-  - npm run lint:hbs
-  - npm run lint:js
-  - npm test
+- npm run lint:hbs
+- npm run lint:js
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: HSoJ0fE3rPKZRXJ8hEE4YrxWlwVHfO+A0eZr47asdFiWcKSI/WaSFiWGzgmVem1sEi5f/x2wMCfiXszUNO2304i+T1Yhvn86Cx05zc3XrN0lP8LXB+7ynmzzuwNI+aZTWyPCvcGkN/wK01kArAq6hKKJX7gc5ATO2i8jdKmyceNK5jekkIzS9jkYc4YjJYB/XqHuruVp6tc4qdbntNnxAP7JYJ/LRpN6A7oYJfIyhyLcH/9PA/eosa6yomUHVnamHdXX4DLP4tnzQBoFlunezbosTKxHxFMAwmH6I/veWZ35tGXU1bmxNU1/TYVr6iOK5k2eTQaxND1I6E31P9c/IErziiNdb1v8+Ruu+FZuGWXvFxmeGSzOBuk9XG6ZeONVcO6u2sU7AqZ/0u0JaWKOG7z/FOY1/fYBIz2yvgdXVglDVEyHP3XPiLVXr5QTjmxOKZDt3xlel0vbss1pD9uIyASgrfo/aengMBmI3Gzt/jl4Fg5rOVp2wdtE+qqWfjpvXve0CBtZ1riT2oUc8yeHadA6V2km2BSClWf7hE4uhKc7pmcq2NAW/JP7l4lmc8V4oNOmmVyPJC868rHb/GMAuE2FLANHgdtV/QKfyk0/vKSAcJqePDk/62ZrWkw00t0sYt64j+rPLyHKJbr5GzJpoZZO7Pjg8uotfzjIzOn4xCY=
+  app: sheltered-headland-59261
+  on:
+    repo: TrevorAbram/peepchat-demo
